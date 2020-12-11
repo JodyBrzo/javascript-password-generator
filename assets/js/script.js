@@ -51,8 +51,19 @@ pwdCriteria.pwdLength = 0;
 result = "";
 
 while (passwordLength < 8 || passwordLength > 128) {
-  passwordLength = prompt("How many characters do you want your password to be?"); //add second line to say password must be between 8 and 128 characters.  also add cancel feature
 
+// 
+// left off here checking if number is an integer 
+// (if not number.isintiger then ask again)
+// 
+
+  
+  passwordLength = prompt("How many characters do you want your password to be? \nPassword must be between 8 and 128 characters."); // also add cancel feature
+  if (!(Number.isInteger(passwordLength))){ 
+    alert("You did not enter a number");
+    return
+
+}
 }
 
   lowerCase = confirm("Do you want to use lower case letters?");
@@ -61,40 +72,53 @@ while (passwordLength < 8 || passwordLength > 128) {
   specialChar = confirm("Do you want to use any special characters?");
 
   while (pwdCriteria.pwdLength < passwordLength){
-    
-    if (lowerCase = true) {
+
+  //if statement to make sure the user selects at least one of the criteria  
+  if (lowerCase === false && upperCase === false && numbers === false && specialChar === false) {
+    alert("You must select at least one criteria of lowercase, uppercase, numbers or special characters")
+
+    lowerCase = confirm("Do you want to use lower case letters?");
+    upperCase = confirm("Do you want to use upper case letters?");
+    numbers = confirm("Do you want to use numbers?");
+    specialChar = confirm("Do you want to use any special characters?");
+  }
+  else {
+
+    if (lowerCase === true && pwdCriteria.pwdLength < passwordLength) {
       lc = pwdCriteria.pwdLowerCase[Math.floor(Math.random()*26)]
-      
       result = result + lc;
-      // result.push(lc);
       pwdCriteria.pwdLength = pwdCriteria.pwdLength + 1;
+      console.log (lc);
+      console.log ("pwdCriteria.pwdLength " + pwdCriteria.pwdLength);
+      console.log ("passwordLength " + passwordLength);
     }
-    if (specialChar = true) {
+    if (specialChar === true && pwdCriteria.pwdLength < passwordLength) {
       sc = pwdCriteria.pwdCharacter[Math.floor(Math.random()*32)]
       result = result + sc;
-      // result.push(sc);
       pwdCriteria.pwdLength = pwdCriteria.pwdLength + 1;
+      console.log (sc);
+      console.log ("pwdCriteria.pwdLength " + pwdCriteria.pwdLength);
+      console.log ("passwordLength " + passwordLength);
     }
-    if (upperCase = true) {
+    if (upperCase === true && pwdCriteria.pwdLength < passwordLength) {
       uc = pwdCriteria.pwdUpperCase[Math.floor(Math.random()*26)]
       result = result + uc;
-      // result.push(uc);
       pwdCriteria.pwdLength = pwdCriteria.pwdLength + 1;
+      console.log (uc);
+      console.log ("pwdCriteria.pwdLength " + pwdCriteria.pwdLength);
+      console.log ("passwordLength " + passwordLength);
     }
-    if (numbers = true) {
+    if (numbers === true && pwdCriteria.pwdLength < passwordLength) {
       num = pwdCriteria.pwdNumber[Math.floor(Math.random()*10)]
       result = result + num;
-      // result.push(num);
       pwdCriteria.pwdLength = pwdCriteria.pwdLength + 1;
+      console.log (num);
+      console.log ("pwdCriteria.pwdLength " + pwdCriteria.pwdLength);
+      console.log ("passwordLength " + passwordLength);
     }
-
-    
-    
-
-    
-  
   }
-  // return result;
+  }
+   return result;
 
  // pwdCriteria.pwdLength = passwordLength;
 
@@ -104,12 +128,12 @@ while (passwordLength < 8 || passwordLength > 128) {
   // console.log (lowerCase);
   // console.log (numbers);
   // console.log (specialChar);
-  console.log (lc);
-  console.log (uc);
-  console.log (num);
-  console.log (sc);
-  console.log (result);
-  console.log(result.length);
+  // console.log (lc);
+  // console.log (uc);
+  // console.log (num);
+  // console.log (sc);
+  // console.log (result);
+  // console.log(result.length);
 
 }
 
