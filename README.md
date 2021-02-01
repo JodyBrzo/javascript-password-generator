@@ -2,6 +2,9 @@
 
 Password generator website
 
+# Technologies Used
+JavaScript 64.7%   CSS 24.1%   HTML 11.2%
+
 # Mock-up
 ![alt text](assets/images/screenshot.png)
 
